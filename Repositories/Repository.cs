@@ -10,12 +10,13 @@
     public class Repository : IRepository<IVessel>
     {
         private ICollection<IVessel> models = new HashSet<IVessel>();
+
         public Repository()
         {
            
         }
 
-        public IReadOnlyCollection<IVessel> Models =>throw new NotImplementedException();
+        public IReadOnlyCollection<IVessel> Models => models.ToList().AsReadOnly();
 
         public void Add(IVessel model)
         {

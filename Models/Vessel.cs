@@ -6,23 +6,22 @@
     using System.Linq;
     using System.Text;
     using Utilities.Messages;
-    internal abstract class Vessel : IVessel
+    public abstract class Vessel : IVessel
     {
         private string name;
-        private ICaptain captain;
+        private ICaptain captain = new Captain("name");
         private double armorThickness;
         private double mainWeaponCaliber;
         private double speed;
-        //private ICollection<string> targets;
+        private ICollection<string> targets;
 
-        protected Vessel(string name, ICaptain captain, double armorThickness, double mainWeaponCaliber, double speed)
+        public Vessel(string name, double mainWeaponCaliber, double speed, double armorThickness)
         {
             this.Name = name;
             this.Captain = captain;
             this.ArmorThickness = armorThickness;
             this.MainWeaponCaliber = mainWeaponCaliber;
             this.Speed = speed;
-            this.Targets = new List<string>();
         }
 
         public string Name
@@ -52,11 +51,12 @@
         }
         public double ArmorThickness { get; set; }
 
-        public double MainWeaponCaliber { get; }
+        public double MainWeaponCaliber { get; protected set; }
 
-        public double Speed { get; }
+        public double Speed { get; protected set; }
 
-        public ICollection<string> Targets { get; set; }
+        public ICollection<string> Targets { get => this.targets; }
+
         public void Attack(IVessel target)
         {
             if (target == null)
@@ -74,7 +74,7 @@
             this.Targets.Add(target.Name);
         }
 
-        public void RepairVessel()
+        public virtual void RepairVessel()
         {
            // armorThickness = max;
         }

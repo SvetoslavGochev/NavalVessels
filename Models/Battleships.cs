@@ -21,7 +21,7 @@
             private set => sonarMode = value;
         }
 
-        public void ToggleSonarMode()
+        public virtual void ToggleSonarMode()
         {
             if (sonarMode)
             {
@@ -43,7 +43,6 @@
             {
                 this.ArmorThickness = defoultArmorThickness;
             }
-           
         }
 
         public override string ToString()
