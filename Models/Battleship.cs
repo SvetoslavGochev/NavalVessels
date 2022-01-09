@@ -5,12 +5,12 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public class Battleships : Vessel, IBattleship
+    public class Battleship : Vessel, IBattleship
     {
         private const double defoultArmorThickness = 300;
 
         private bool sonarMode = false;
-        public Battleships(string name, double mainWeaponCaliber, double speed) : base(name, mainWeaponCaliber, speed, defoultArmorThickness)
+        public Battleship(string name, double mainWeaponCaliber, double speed) : base(name, mainWeaponCaliber, speed, defoultArmorThickness)
         {
             this.ArmorThickness = defoultArmorThickness;
         }
@@ -21,7 +21,7 @@
             private set => sonarMode = value;
         }
 
-        public virtual void ToggleSonarMode()
+        public  void ToggleSonarMode()
         {
             if (sonarMode)
             {

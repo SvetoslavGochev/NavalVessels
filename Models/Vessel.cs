@@ -13,7 +13,7 @@
         private double armorThickness;
         private double mainWeaponCaliber;
         private double speed;
-        private ICollection<string> targets;
+        private ICollection<string> targets = new List<string>();   
 
         public Vessel(string name, double mainWeaponCaliber, double speed, double armorThickness)
         {
@@ -86,16 +86,17 @@
             sb.AppendLine($"*Type: {typeof(Vessel)}");
             sb.AppendLine($"*Main weapon caliber: {this.mainWeaponCaliber}");
             sb.AppendLine($"Speed: {this.Speed} knots");
-            if (this.Targets.Any())
+            if (this.Targets.Count == 0)
             {
-                foreach (var target in this.Targets)
-                {
-
-                }
+                sb.AppendLine("*Targets: None");
+            }
+            else
+            {
+                sb.AppendLine($"*Targets: {String.Join(", ", this.Targets)}");
             }
             //sb.AppendLine($"*Targets: " – if there are no targets "None" Otherwise print "{target1}, {target2}, {target3}, {targetN}"");
-            
-            return sb.ToString().TrimEnd();
+
+            return sb.ToString().Trim();
         }
     }
 }

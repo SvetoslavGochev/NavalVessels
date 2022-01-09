@@ -1,7 +1,7 @@
-﻿namespace NavalVessels.Repositories
+﻿namespace NavalVessels.Repository
 {
     using NavalVessels.Models.Contracts;
-    using NavalVessels.Repositories.Contracts;
+    using NavalVessels.Repository.Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -13,7 +13,7 @@
 
         public Repository()
         {
-           
+
         }
 
         public IReadOnlyCollection<IVessel> Models => models.ToList().AsReadOnly();
@@ -27,14 +27,21 @@
         {
             var vessel = this.models.FirstOrDefault(x => x.Name == name);
 
-           var result = vessel != null ? vessel : null;
+            if (vessel != null)
+            {
+                return vessel;
+            }
+            else
+            {
 
-            return result;
+                return null;
+            }
+
         }
 
         public bool Remove(IVessel model)
         {
-           return this.models.Remove(model);
+            return this.models.Remove(model);
         }
     }
 

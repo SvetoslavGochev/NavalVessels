@@ -1,4 +1,4 @@
-﻿namespace NavalVessels.Repositories.Contracts
+﻿namespace NavalVessels.Repository.Contracts
 {
     using System.Collections.Generic;
 
