@@ -10,7 +10,8 @@
     {
         private string fullName;
         private int combatExperiance = 0;
-        private ICollection<IVessel> vessels;
+        private ICollection<IVessel> vessels = new List<IVessel>();
+
         public Captain(string fullName)
         {
             this.FullName = fullName;
@@ -20,6 +21,7 @@
         public string FullName
         {
             get => this.fullName;
+
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -39,7 +41,7 @@
             }
         }
 
-        public ICollection<IVessel> Vessels { get; set; } = new HashSet<IVessel>();
+        public ICollection<IVessel> Vessels { get => this.vessels; } 
 
         public void AddVessel(IVessel vessel)
         {
@@ -56,7 +58,7 @@
         }
 
         public string Report()
-        {
+        { 
             var sb = new StringBuilder();
             var result = $"{this.fullName} has {this.combatExperiance} combat experience and commands {this.vessels.Count} vessels.";
             sb.AppendLine(result);

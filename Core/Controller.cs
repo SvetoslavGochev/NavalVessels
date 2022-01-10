@@ -11,11 +11,13 @@
 
     public class Controller : IController
     {
-        private Repository vessels = new Repository();
+        private VesselRepository vessels = new VesselRepository();
 
         private ICollection<ICaptain> captains = new List<ICaptain>();
 
-
+        public Controller()
+        {
+        }
 
         public string AssignCaptain(string selectedCaptainName, string selectedVesselName)
         {
@@ -31,17 +33,17 @@
             if (captain == null)
             {
                 return $"Captain {selectedCaptainName} could not be found.";
-                return result;
+               
             }
             else if (vessel == null)
             {
                 return $"Vessel {selectedVesselName} could not be found.";
-                return result;
+              
             }
             else if (currCaptainVessel != null)
             {
                 result = $"{Utilities.Messages.OutputMessages.VesselOccupied},{selectedVesselName}";
-                return result;
+               
 
             }
 
@@ -59,7 +61,7 @@
 
         public string CaptainReport(string captainFullName)
         {
-            var currVessel = this.vessels.Models.FirstOrDefault(x => x.Name == captainFullName);
+            var currVessel = this.vessels.Models.FirstOrDefault(x => x.Captain.FullName == captainFullName);
 
             var currCaptain = currVessel.Captain;
 
@@ -71,6 +73,7 @@
         public string HireCaptain(string fullName)
         {
             var captain = this.captains.FirstOrDefault(x => x.FullName == fullName);
+
             if (captain == null)
             {
                 var newCaptain = new Captain(fullName);

@@ -7,16 +7,13 @@
     using System.Linq;
     using System.Text;
 
-    public class Repository : IRepository<IVessel>
+    public class VesselRepository : IRepository<IVessel>
     {
-        private ICollection<IVessel> models = new HashSet<IVessel>();
+        private List<IVessel> models = new List<IVessel>();
 
-        public Repository()
-        {
 
-        }
-
-        public IReadOnlyCollection<IVessel> Models => models.ToList().AsReadOnly();
+        public IReadOnlyCollection<IVessel> Models
+            => this.models.AsReadOnly();
 
         public void Add(IVessel model)
         {
