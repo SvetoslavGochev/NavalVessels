@@ -33,14 +33,16 @@
             }
             else
             {
-
                 return null;
             }
 
         }
-
         public bool Remove(IVessel model)
         {
+            if (model == null)
+            {
+                return false;
+            }
             return this.models.Remove(model);
         }
     }
