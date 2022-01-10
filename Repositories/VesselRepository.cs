@@ -11,6 +11,9 @@
     {
         private List<IVessel> models = new List<IVessel>();
 
+        public VesselRepository()
+        {
+        }
 
         public IReadOnlyCollection<IVessel> Models
             => this.models.AsReadOnly();

@@ -51,9 +51,11 @@
             }
             this.vessels.Add(vessel);
         }
+      
 
         public void IncreaseCombatExperience()
         {
+            
             this.CombatExperience += 10;
         }
 

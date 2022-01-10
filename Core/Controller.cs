@@ -49,6 +49,7 @@
 
             /*essel.Captain.FullName == selectedCaptainName;*/
 
+            captain.AddVessel(vessel);
             vessel.Captain = captain;
 
             this.vessels.Add(vessel);
