@@ -10,6 +10,7 @@
         private const double defoultArmorThickness = 300;
 
         private bool sonarMode = false;
+
         public Battleship(string name, double mainWeaponCaliber, double speed) : base(name, mainWeaponCaliber, speed, defoultArmorThickness)
         {
             this.ArmorThickness = defoultArmorThickness;

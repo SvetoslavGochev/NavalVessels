@@ -80,7 +80,7 @@
                 }
             }
 
-            return result;
+            return sb.ToString().Trim();
         }
     }
 }

@@ -50,6 +50,7 @@
             /*essel.Captain.FullName == selectedCaptainName;*/
 
             captain.AddVessel(vessel);
+
             vessel.Captain = captain;
 
             this.vessels.Add(vessel);
@@ -114,7 +115,7 @@
             }
             else
             {
-                return Utilities.Messages.OutputMessages.InvalidVesselType;
+                return $"Captain {name} could not be found.";
 
             }
         }

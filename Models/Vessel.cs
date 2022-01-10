@@ -84,7 +84,7 @@
             var sb = new StringBuilder();
             sb.AppendLine($"- {this.Name}");
             sb.AppendLine($"*Type: {typeof(Vessel)}");
-            sb.AppendLine($"*Main weapon caliber: {this.mainWeaponCaliber}");
+            sb.AppendLine($"*Main weapon caliber: {this.MainWeaponCaliber}");
             sb.AppendLine($"Speed: {this.Speed} knots");
             if (this.Targets.Count == 0)
             {
